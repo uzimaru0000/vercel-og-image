@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "module": "CommonJS",
+        "target": "es2018",
+        "esModuleInterop": true,
+        "lib": [
+            "esnext"
+        ],
+        "outDir": "./dist",
+        "sourceMap": true,
+        "declaration": true,
+        "resolveJsonModule": true
+    },
+    "include": [
+        "**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "functions": {
+        "api/**/*.html": {
+            "runtime": "vercel-dev-runtime@0.0.2",
+            "memory": 1024
+        },
+        "api/**/*.tsx": {
+            "runtime": "vercel-dev-runtime@0.0.2",
+            "memory": 1024
+        }
+    }
+}
