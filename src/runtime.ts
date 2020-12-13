@@ -14,7 +14,7 @@ type Context = {}
 export const handler = async (event: Event) => {
     const body = JSON.parse(event.body);
     try {
-        const html = loader(join(__dirname, process.env.ENTRY_POINT!))
+        const html = loader(join(__dirname, process.env.ENTRY_POINT!), body.path)
         if (isHtmlDebug) {
             return {
                 statusCode: 200,
