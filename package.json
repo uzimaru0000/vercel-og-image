@@ -1,15 +1,20 @@
 {
   "name": "@uzimaru0000/og-image",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vercel's Runtime for generating OGP",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "parcel build --target node --bundle-node-modules --no-source-maps src/*.ts",
-    "now-build": "echo 'static source'"
+    "now-build": "echo 'static source'",
+    "prepublishOnly": "npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "vercel",
+    "runtime",
+    "ogp"
+  ],
+  "author": "uzimaru0000 <shuji365630@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/puppeteer-core": "^2.0.0",
