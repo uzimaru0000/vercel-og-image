@@ -8,7 +8,6 @@ import {
     FileFsRef
 } from '@vercel/build-utils'
 import { join, extname, basename, dirname } from 'path'
-import compiler from './lib/compiler'
 import cpy from 'cpy'
 
 export const version = 3
@@ -26,22 +25,15 @@ export const build = async ({
     meta = {},
     config = {}
 }: BuildOptions) => {
-    const filePath = files[entrypoint]
+    await download(files, workPath, meta);
 
-    if (!filePath.fsPath) {
-        throw new Error('failed build')
-    }
-
-    const entryExt = extname(filePath.fsPath).replace('.', '')
+    const entryExt = extname(entrypoint).replace('.', '')
     const devCacheDir = join(workPath, '.vercel', 'cache')
     const distPath = join(devCacheDir, entryExt)
 
-    await download(files, workPath, meta);
 
-    if (entryExt === 'tsx') {
-        compiler(distPath, [filePath.fsPath])
-    } else if (entryExt === 'html') {
-        await cpy([filePath.fsPath], join(distPath, dirname(entrypoint)))
+    if (entryExt === 'html') {
+        await cpy([join(workPath, entrypoint)], join(distPath, dirname(entrypoint)))
     }
 
     const output = await createLambda({

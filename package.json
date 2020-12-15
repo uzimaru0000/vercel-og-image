@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "parcel build --target node --bundle-node-modules --no-source-maps src/*.ts",
+    "build": "parcel build --target=node --bundle-node-modules src/*.ts",
     "now-build": "echo 'static source'",
     "prepublishOnly": "npm run build"
   },
@@ -23,7 +23,6 @@
     "@types/puppeteer-core": "^2.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "inspector": "^0.5.0",
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
