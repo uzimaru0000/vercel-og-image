@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "ncc build src/index.ts -m && ncc build src/runtime.ts -o dist/runtime -m && rm -r dist/runtime/bin",
+    "build": "ncc build src/index.ts -m && ncc build src/runtime.ts -o dist/runtime -m && rm -r dist/runtime/bin && rm -r dist/typescript/**/*.ts",
     "now-build": "echo 'static source'",
     "prepublishOnly": "npm run build"
   },
