@@ -1,5 +1,5 @@
-import { getScreenshot } from './lib/chromium';
 import { join } from 'path'
+import { getScreenshot } from './lib/chromium';
 import loader from './lib/loader'
 
 const isDev = process.env.IS_DEV === '1';
@@ -8,8 +8,6 @@ const isHtmlDebug = process.env.OG_HTML_DEBUG === '1';
 type Event = {
     body: string
 }
-
-type Context = {}
 
 export const handler = async (event: Event) => {
     const body = JSON.parse(event.body);

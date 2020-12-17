@@ -1,21 +1,22 @@
 {
     "compilerOptions": {
-        "strict": true,
-        "module": "CommonJS",
-        "target": "es2018",
-        "esModuleInterop": true,
-        "lib": [
-            "esnext"
-        ],
-        "outDir": "./dist",
+        "outDir": "dist",
+        "module": "commonjs",
+        "target": "esnext",
+        "moduleResolution": "node",
+        "jsx": "react",
         "sourceMap": true,
-        "declaration": true,
-        "resolveJsonModule": true
+        "strict": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noEmitOnError": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "esModuleInterop": true
     },
     "include": [
-        "**/*.ts"
-    ],
-    "exclude": [
-        "node_modules"
+        "./src"
     ]
 }

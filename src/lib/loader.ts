@@ -1,4 +1,4 @@
-import { extname, join } from 'path'
+import { extname } from 'path'
 import { readFileSync } from 'fs'
 import * as React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
