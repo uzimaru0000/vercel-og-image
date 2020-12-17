@@ -6,7 +6,7 @@
             "memory": 1024
         },
         "api/**/*.tsx": {
-            "runtime": "vercel-dev-runtime@0.0.2",
+            "runtime": "@uzimaru0000/vercel-og-image@1.2.5",
             "memory": 1024
         }
     }
