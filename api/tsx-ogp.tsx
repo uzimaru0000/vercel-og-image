@@ -8,6 +8,7 @@ const Style = () => <style dangerouslySetInnerHTML={{ __html: `
 
     .wrapper {
         display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100vh;
         justify-content: center;
@@ -26,7 +27,7 @@ export default ({ query }) => <html>
     </head>
     <body>
         <div className="wrapper">
-            <div className="langar">{ query.title || 'Hello' }</div>
+            <div className="langar">{ query.title ? encodeURIComponent(query.title) : 'Hello' }</div>
             <div>generated from tsx</div>
         </div>
     </body>
