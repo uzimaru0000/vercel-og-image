@@ -4,8 +4,6 @@ import * as React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import * as URL from 'url'
 
-global.React = React
-
 export default (entrypoint: string, path: string) => {
     const ext = extname(entrypoint)
 
@@ -17,6 +15,11 @@ export default (entrypoint: string, path: string) => {
             const props = {
                 query: getQuery(path),
                 path: URL.parse(path).pathname
+            }
+
+            const result = component(props)
+            if (typeof result === 'string') {
+                return result
             }
             return renderToStaticMarkup(React.createElement(component, props))
     }

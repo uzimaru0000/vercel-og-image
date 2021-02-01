@@ -5,7 +5,7 @@
             "runtime": "vercel-dev-runtime@0.0.2",
             "memory": 1024
         },
-        "api/**/*.tsx": {
+        "api/**/*.js": {
             "runtime": "vercel-dev-runtime@0.0.2",
             "memory": 1024
         }

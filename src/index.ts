@@ -8,7 +8,6 @@ import {
 } from '@vercel/build-utils'
 import { join, extname, dirname } from 'path'
 import cpy from 'cpy'
-import compiler from './lib/compiler'
 
 export const version = 3
 
@@ -29,12 +28,7 @@ export const build = async ({
     const distPath = join(devCacheDir, entryExt)
 
     await download(files, workPath, meta)
-
-    if (entryExt === 'html') {
-        await cpy([join(workPath, entrypoint)], join(distPath, dirname(entrypoint)))
-    } else if (entryExt === 'tsx') {
-        compiler(join(distPath, dirname(entrypoint)), [join(workPath, entrypoint)])
-    }
+    await cpy([join(workPath, entrypoint)], join(distPath, dirname(entrypoint)))
 
     const file = {
         ...(await glob("**", distPath)),
@@ -46,7 +40,7 @@ export const build = async ({
         handler: 'index.handler',
         files: file,
         environment: {
-            ENTRY_POINT: entryExt === 'tsx' ? `${entrypoint.replace('.tsx', '')}.js` : entrypoint,
+            ENTRY_POINT: entrypoint,
             IS_DEV: meta.isDev ? '1' : '0'
         }
     })

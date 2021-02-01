@@ -1,6 +1,6 @@
 {
   "name": "@uzimaru0000/vercel-og-image",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Vercel's Runtime for generating OGP",
   "main": "dist/index.js",
   "files": [
@@ -8,11 +8,12 @@
   ],
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "run-p build:entry build:runtime && rm -r dist/runtime/bin && rm -r dist/typescript/**/*.ts && rm -r dist/typescript/**/*.json && rm -r dist/runtime/build",
+    "build": "run-p build:entry build:runtime && rm -r dist/runtime/bin && rm -r dist/runtime/build",
     "now-build": "echo 'static source'",
     "prepublishOnly": "npm run build",
     "build:entry": "ncc build src/index.ts -m",
-    "build:runtime": "ncc build src/runtime.ts -o dist/runtime -m"
+    "build:runtime": "ncc build src/runtime.ts -o dist/runtime -m",
+    "build:example": "ncc build api/tsx-ogp.tsx -o api/dist -m"
   },
   "keywords": [
     "vercel",

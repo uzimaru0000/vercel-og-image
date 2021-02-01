@@ -1,7 +1,9 @@
+import * as React from 'react'
+
 const Style = () => <style dangerouslySetInnerHTML={{ __html: `
     @import url('https://fonts.googleapis.com/css2?family=Langar&display=swap');
 
-    .body {
+    body {
         margin: 0;
         padding: 0;
     }
@@ -21,13 +23,13 @@ const Style = () => <style dangerouslySetInnerHTML={{ __html: `
     }
 ` }} />
 
-export default ({ query }) => <html>
+export default ({ query }: { query: { [key: string]: string } }) => <html>
     <head>
         <Style />
     </head>
     <body>
         <div className="wrapper">
-            <div className="langar">{ query.title ? encodeURIComponent(query.title) : 'Hello' }</div>
+            <div className="langar">{ query['title'] ? decodeURIComponent(query['title']) : 'Hello' }</div>
             <div>generated from tsx</div>
         </div>
     </body>
