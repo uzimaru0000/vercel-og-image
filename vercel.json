@@ -1,13 +1,18 @@
 {
-    "version": 2,
-    "functions": {
-        "api/**/*.html": {
-            "runtime": "vercel-dev-runtime@0.0.2",
-            "memory": 1024
-        },
-        "api/**/*.js": {
-            "runtime": "vercel-dev-runtime@0.0.2",
-            "memory": 1024
-        }
+  "version": 2,
+  "functions": {
+    "api/**/*.html": {
+      "runtime": "vercel-dev-runtime@0.0.2",
+      "memory": 1024
+    },
+    "api/**/*.js": {
+      "runtime": "vercel-dev-runtime@0.0.2",
+      "memory": 1024
     }
+  },
+  "env": {
+    "OG_IMAGE_WIDTH": "800",
+    "OG_IMAGE_HEIGHT": "800",
+    "OG_IMAGE_TARGET": ".langar"
+  }
 }
