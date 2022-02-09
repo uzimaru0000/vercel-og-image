@@ -21,7 +21,6 @@ export const build = async ({
   workPath,
   entrypoint,
   files,
-  config,
   meta = {},
 }: BuildOptions) => {
   const entryExt = extname(entrypoint).replace(".", "");
@@ -36,9 +35,6 @@ export const build = async ({
     ...(await glob("**", join(__dirname, "runtime"))),
   };
 
-  console.log(config);
-  console.log(meta);
-
   const env: { [key: string]: string } = {
     ENTRY_POINT: entrypoint,
     IS_DEV: meta.isDev ? "1" : "0",
@@ -51,7 +47,7 @@ export const build = async ({
   }
 
   const output = await createLambda({
-    runtime: "nodejs10.x",
+    runtime: "nodejs12.x",
     handler: "index.handler",
     files: file,
     environment: env,

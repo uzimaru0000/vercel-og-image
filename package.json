@@ -1,6 +1,6 @@
 {
   "name": "@uzimaru0000/vercel-og-image",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Vercel's Runtime for generating OGP",
   "main": "dist/index.js",
   "files": [
